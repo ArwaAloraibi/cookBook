@@ -12,14 +12,20 @@
 
     <a href="/users/<%=user._id%>/foods/new">Add New Item</a>
 
+    <ul>
     <!-- to display items -->
  <% foods.forEach((food)=>{ %>
   <li>
-    <a href="/users/<%= user._id %>/foods/<%= food._id %>">
-      <%= food.name %> 
-    </a>
+      <%= food.name  %> 
+
+    <form action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete <%=food.name%></button>
+    </form>
+         
+    <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">Edit item </a>
+  
   </li>
 <% }) %>
-
+</ul>
   </body>
 </html>
